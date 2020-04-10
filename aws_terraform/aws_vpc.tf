@@ -59,7 +59,7 @@ resource "aws_subnet" "main" {
 
 # Route Table Association
 # route_table_idのうまい指定方法が分からなかったのでConditional Expressionで無理やり場合分けしている
-# 多分variable側にrouteブロックの情報を埋め込んでDynamic Blockを使ってRouteTableを定義するしかなさげ
+# 多分localにrouteブロックの情報を埋め込んでDynamic Blockを使ってRouteTableを定義するのが良い気がする
 # サブネットがPublic Protected Private の3層構造になったら実装しよ
 resource "aws_route_table_association" "a" {
   for_each = var.vpc_subnet
