@@ -1,0 +1,8 @@
+{
+    "Parameters": [
+        {
+            "ParameterKey": "S3BucketName",
+            "ParameterValue": "hikosaburou-aws-h4b-terraform-tfstate"
+        }
+    ]
+}
