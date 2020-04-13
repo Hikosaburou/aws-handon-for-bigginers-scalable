@@ -34,8 +34,6 @@ export AWS_ACCESS_KEY_ID=xxxxxxxxxxx
 export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-# Usage
-
 ## tfstate配置用S3バケット作成
 
 backend_cfn/parameter.json を編集する。
@@ -46,11 +44,21 @@ backend_cfn/parameter.json を編集する。
 
 - `terraform{}` の `bucket` 属性を先ほど編集したバケット名に変更する
 
-backend_cfn ディレクトリ内で以下を実行する。
+backend_cfn ディレクトリ内で以下を実行し、S3バケット用のCloudFromation Stackを作成する。
 
 ```
-aws cloudformation create-stack --template-body file://s3_bucket.yaml --stack-name hoge-cloud-tfstate-s3bucket --cli-input-json file://parameter.json
+aws cloudformation create-stack --template-body file://s3_bucket.yaml --stack-name tfstate-s3bucket --cli-input-json file://parameter.json
 ```
+
+## tfstate 作成
+
+terraform.tfvars ファイルを作成する。作業環境の外部IPを確認し、以下のようにIPアドレス空間を設定する。
+
+```
+my_ip = "xx.xx.xx.xx/32"
+```
+
+# Usage
 
 ## Terraform 実行
 
