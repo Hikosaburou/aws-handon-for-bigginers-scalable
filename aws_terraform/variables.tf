@@ -25,20 +25,24 @@ variable "vpc_subnet" {
 
   default = {
     public-a = {
-      cidr  = "10.0.0.0/24"
-      route = "igw"
+      cidr              = "10.0.0.0/24"
+      availability_zone = "ap-northeast-1a"
+      route             = "igw"
     }
     public-c = {
-      cidr  = "10.0.1.0/24"
-      route = "igw"
+      cidr              = "10.0.1.0/24"
+      availability_zone = "ap-northeast-1c"
+      route             = "igw"
     }
     private-a = {
-      cidr  = "10.0.2.0/24"
-      route = "private"
+      cidr              = "10.0.2.0/24"
+      availability_zone = "ap-northeast-1a"
+      route             = "private"
     }
     private-c = {
-      cidr  = "10.0.3.0/24"
-      route = "private"
+      cidr              = "10.0.3.0/24"
+      availability_zone = "ap-northeast-1c"
+      route             = "private"
     }
   }
 }
