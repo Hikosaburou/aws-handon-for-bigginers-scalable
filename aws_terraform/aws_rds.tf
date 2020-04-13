@@ -38,8 +38,11 @@ resource "aws_db_instance" "wordpress" {
   # マネージド機能の設定
   identifier                 = "${var.project_key}-wordpress-db"
   backup_retention_period    = 1
+  skip_final_snapshot        = true
   auto_minor_version_upgrade = false
   multi_az                   = false
+  vpc_security_group_ids     = [aws_security_group.rds_instance.id]
+  db_subnet_group_name       = aws_db_subnet_group.wordpress.name
 
   name                 = "wordpress"
   username             = "admin"
