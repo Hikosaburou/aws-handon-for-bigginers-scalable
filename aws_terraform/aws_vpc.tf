@@ -50,8 +50,11 @@ resource "aws_route_table" "private" {
 resource "aws_subnet" "main" {
   for_each = var.vpc_subnet
 
-  vpc_id     = aws_vpc.main.id
-  cidr_block = each.value["cidr"]
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = each.value["cidr"]
+  availability_zone = each.value["availability_zone"]
+
+  map_public_ip_on_launch = each.value["route"] == "igw" ? true : false
 
   tags = {
     Name = "${var.project_key}-${var.vpc_name}-${each.key}"
