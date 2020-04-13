@@ -32,7 +32,7 @@ resource "aws_db_instance" "wordpress" {
   allocated_storage = 20
   storage_type      = "gp2"
   engine            = "mysql"
-  engine_version    = "5.7"
+  engine_version    = "5.7.22"
   instance_class    = "db.t2.micro" # ここも変数に出すことが多い
 
   # マネージド機能の設定
