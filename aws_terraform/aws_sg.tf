@@ -45,7 +45,7 @@ resource "aws_security_group" "rds_instance" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.ec2_instance.id]
+    security_groups = [aws_security_group.ec2_instance.id] # EC2インスタンスからのアクセスのみ許可
   }
 
   egress {
