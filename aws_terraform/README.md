@@ -13,7 +13,7 @@ Terraform 作業スペース。
 
 tfstate保存用S3バケットを生成するためのCFn Stackファイル。
 
-# Preparation
+# 準備
 
 ## 環境変数
 
@@ -58,7 +58,7 @@ terraform.tfvars ファイルを作成する。作業環境の外部IPを確認�
 my_ip = "xx.xx.xx.xx/32"
 ```
 
-# Usage
+# デプロイ
 
 ## Terraform 実行
 
@@ -71,7 +71,7 @@ terraform plan
 terraform apply
 ```
 
-# Issue
+# ToDo
 
 * S3バケット名をハードコードしているので、いい具合に変えられるようにしたい
     * `terraform {}` ブロックは変数が使えないので、ローカルで生成する仕組みにするしかないかな。
