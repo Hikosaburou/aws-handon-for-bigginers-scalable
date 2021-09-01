@@ -1,8 +1,8 @@
 # パスワード生成
 resource "random_password" "rds_wordpress_admin" {
-  length           = 16
+  length           = 20
   special          = true
-  override_special = "_%@"
+  override_special = "%@ "
 }
 
 # Parameter Group
